@@ -1,0 +1,15 @@
+int Solution::solve(vector<int> &A, int B) {
+    int N = A.size();
+    int K = N - B;
+    int sum = 0, min = 0, tempSum = 0;
+    for(int ele: A) sum += ele;
+    for(int i=0; i<K; i++) tempSum += A[i];
+    int start = 0;
+    minSum = tempSum;
+    for(int j=K; j<N; j++) {
+        tempSum -= A[start++];
+        tempSum += A[j];
+        minSum = min(minSum,tempSum); 
+    }
+    return sum - minSum;
+}

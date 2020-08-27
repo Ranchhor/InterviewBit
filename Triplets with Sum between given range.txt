@@ -1,0 +1,19 @@
+int Solution::solve(vector<string> &A) {
+    vector<double> B;
+    for(string s: A) {
+        B.push_back(stod(s));
+    }
+    
+    int N = B.size();
+    for(int i=0; i<1000; i++) {
+        int a = (rand() % N);
+        int b = (rand() % N);
+        int c = (rand() % N);
+        
+        if(a!=b && b!=c && c!=a) {
+            if(B[a] + B[b] + B[c] > 1 && B[a] + B[b] + B[c] <2) return 1;
+        }
+    }
+    
+    return 0;
+}
